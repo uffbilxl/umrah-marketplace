@@ -136,7 +136,8 @@ const HomePage = () => {
       </section>
 
       {/* Categories */}
-      <section className="py-24 md:py-32 bg-background">
+      <section className="py-24 md:py-32 bg-background relative overflow-hidden">
+        <img src="/images/pattern-left.png" alt="" className="absolute top-1/2 -translate-y-1/2 -left-8 h-[70%] w-auto opacity-[0.05] pointer-events-none select-none" />
         <div className="container-umrah">
           <div className="text-center mb-16">
             <span className="section-label">Our Range</span>
@@ -170,6 +171,8 @@ const HomePage = () => {
       {/* Deals */}
       <section className="py-24 md:py-32 bg-umrah-black relative overflow-hidden">
         <div className="absolute top-0 right-0 w-[400px] h-[400px] border border-secondary/5 rounded-full translate-x-1/2 -translate-y-1/2" />
+        <img src="/images/pattern-left.png" alt="" className="absolute top-0 left-0 h-full w-auto opacity-[0.04] pointer-events-none select-none" />
+        <img src="/images/pattern-right.png" alt="" className="absolute top-0 right-0 h-full w-auto opacity-[0.04] pointer-events-none select-none" />
         <div className="container-umrah relative z-10">
           <div className="text-center mb-16">
             <span className="section-label">This Week</span>
@@ -200,7 +203,8 @@ const HomePage = () => {
       </section>
 
       {/* Loyalty / U Points */}
-      <section className="py-24 md:py-32 bg-background overflow-hidden">
+      <section className="py-24 md:py-32 bg-background overflow-hidden relative">
+        <img src="/images/pattern-right.png" alt="" className="absolute top-1/2 -translate-y-1/2 -right-8 h-[80%] w-auto opacity-[0.05] pointer-events-none select-none" />
         <div className="container-umrah">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
             <div>

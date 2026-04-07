@@ -132,7 +132,7 @@ const Navbar = () => {
               <div className="relative" ref={menuRef}>
                 <button
                   onClick={() => setUserMenuOpen(!userMenuOpen)}
-                  className="flex items-center gap-2 bg-secondary text-umrah-black px-4 py-2 rounded-[2px] text-[0.8rem] font-semibold tracking-[0.1em] uppercase hover:bg-umrah-white transition-all"
+                  className="flex items-center gap-2 bg-primary text-primary-foreground px-4 py-2 rounded-[2px] text-[0.8rem] font-semibold tracking-[0.1em] uppercase hover:bg-primary/90 transition-all"
                 >
                   <span className="w-6 h-6 bg-umrah-black/10 rounded-full flex items-center justify-center text-[0.6rem] font-bold">
                     {initials}
@@ -161,7 +161,7 @@ const Navbar = () => {
             ) : (
               <button
                 onClick={() => setAuthOpen(true)}
-                className="bg-secondary text-umrah-black px-6 py-2.5 rounded-[2px] text-[0.8rem] font-semibold tracking-[0.15em] uppercase hover:bg-umrah-white transition-all"
+                className="bg-primary text-primary-foreground px-6 py-2.5 rounded-[2px] text-[0.8rem] font-semibold tracking-[0.15em] uppercase hover:bg-primary/90 transition-all"
               >
                 Sign In
               </button>
@@ -191,14 +191,14 @@ const Navbar = () => {
         {user ? (
           <>
             <Link to="/profile" className="font-header text-3xl text-umrah-white tracking-[0.1em] uppercase hover:text-secondary">Profile</Link>
-            <button onClick={handleSignOut} className="bg-secondary text-umrah-black px-8 py-3 rounded-[2px] font-semibold tracking-[0.15em] uppercase mt-4">
+            <button onClick={handleSignOut} className="bg-primary text-primary-foreground px-8 py-3 rounded-[2px] font-semibold tracking-[0.15em] uppercase mt-4">
               Sign Out
             </button>
           </>
         ) : (
           <button
             onClick={() => { setMobileOpen(false); setAuthOpen(true); }}
-            className="bg-secondary text-umrah-black px-8 py-3 rounded-[2px] font-semibold tracking-[0.15em] uppercase mt-4"
+            className="bg-primary text-primary-foreground px-8 py-3 rounded-[2px] font-semibold tracking-[0.15em] uppercase mt-4"
           >
             Sign In
           </button>

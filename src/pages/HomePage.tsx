@@ -94,6 +94,7 @@ const HomePage = () => {
             ))}
           </div>
         </div>
+        </div>
 
         {/* Hero tiles left - desktop only */}
         <div className="hidden xl:flex absolute left-12 top-[28%] z-10 flex-col gap-4">

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-
+import PatternOverlay from '@/components/PatternOverlay';
 
 const stores = [
   { name: 'Leicester — HQ', address: '9 St Georges Retail Park, Leicester, LE1 1SG', hours: 'Mon–Sun: 8:00am – 10:00pm', tel: '0116 000 0000', open: true, maps: 'https://maps.google.com/?q=9+St+Georges+Retail+Park+Leicester+LE1+1SG', embed: '9+St+Georges+Retail+Park+Leicester+LE1+1SG' },
@@ -23,7 +23,8 @@ const StoresPage = () => {
   return (
     <>
       <Navbar />
-      <main className="pt-28 pb-20 min-h-screen bg-muted">
+      <main className="pt-28 pb-20 min-h-screen bg-muted relative overflow-hidden">
+        <PatternOverlay opacity={0.06} />
         <div className="container-umrah">
           <div className="text-center mb-12">
             <span className="section-label">Find Us</span>

@@ -16,6 +16,7 @@ import ProfilePage from "./pages/ProfilePage";
 import CheckoutPage from "./pages/CheckoutPage";
 import NotFound from "./pages/NotFound";
 import Preloader from "./components/Preloader";
+import ScrollToTop from "./components/ScrollToTop";
 
 const queryClient = new QueryClient();
 

@@ -4,7 +4,7 @@ import { supabase } from '@/integrations/supabase/client';
 import { useAuth } from '@/contexts/AuthContext';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import Preloader from '@/components/Preloader';
+
 import { toast } from 'sonner';
 import { Loader2 } from 'lucide-react';
 import { calcVoucherValue, nextVoucherPointsNeeded, redeemCalc } from '@/lib/points';
@@ -110,7 +110,7 @@ const ProfilePage = () => {
   if (authLoading || !profile) {
     return (
       <>
-        <Preloader /><Navbar />
+        <Navbar />
         <main className="pt-28 pb-20 min-h-screen bg-muted flex items-center justify-center">
           <Loader2 className="w-8 h-8 animate-spin text-secondary" />
         </main>
@@ -138,7 +138,7 @@ const ProfilePage = () => {
 
   return (
     <>
-      <Preloader /><Navbar />
+      <Navbar />
       <main className="min-h-screen">
         {/* Header */}
         <section className="bg-primary pt-28 pb-10">

@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import Preloader from '@/components/Preloader';
+
 
 const dealsList = [
   { id: 1, title: 'Lamb Leg Whole', badge: 'Double Deal', desc: 'Premium whole lamb leg, 100% Halal.', price: '£8.99/kg', original: '£11.99/kg', img: 'https://images.unsplash.com/photo-1588347818036-558601350947?w=600&q=80' },
@@ -49,7 +49,7 @@ const DealsPage = () => {
 
   return (
     <>
-      <Preloader /><Navbar />
+      <Navbar />
       <main className="min-h-screen">
         {/* Featured deal hero */}
         <section className="bg-umrah-black pt-28 pb-16">

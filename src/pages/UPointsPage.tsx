@@ -4,7 +4,7 @@ import { supabase } from '@/integrations/supabase/client';
 import { useAuth } from '@/contexts/AuthContext';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import Preloader from '@/components/Preloader';
+
 import { calcVoucherValue, nextVoucherPointsNeeded, redeemCalc } from '@/lib/points';
 import { toast } from 'sonner';
 
@@ -72,7 +72,7 @@ const UPointsPage = () => {
 
     return (
       <>
-        <Preloader /><Navbar />
+        <Navbar />
         <main className="pt-28 pb-20 min-h-screen bg-muted">
           <div className="container-umrah max-w-[900px]">
             <h1 className="font-header text-3xl tracking-[0.05em] uppercase mb-2">Welcome back, {profile.name}</h1>
@@ -237,7 +237,7 @@ const UPointsPage = () => {
   // Not logged in
   return (
     <>
-      <Preloader /><Navbar />
+      <Navbar />
       <main className="min-h-screen">
         {/* Hero */}
         <section className="bg-umrah-black pt-32 pb-20">

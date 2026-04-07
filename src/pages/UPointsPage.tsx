@@ -321,7 +321,7 @@ const UPointsPage = () => {
                   <option value="">Preferred Store</option>
                   {STORES.map(s => <option key={s} value={s}>{s}</option>)}
                 </select>
-                <button type="submit" disabled={submitting} className="w-full bg-secondary text-secondary-foreground py-3 rounded-[2px] text-sm font-bold tracking-[0.1em] uppercase hover:bg-umrah-gold-dark transition-all disabled:opacity-50">
+                <button type="submit" disabled={submitting} className="w-full bg-primary text-primary-foreground py-3 rounded-[2px] text-sm font-bold tracking-[0.1em] uppercase hover:bg-primary/90 transition-all disabled:opacity-50">
                   {submitting ? 'Creating Account...' : 'Join Now'}
                 </button>
               </form>
@@ -329,7 +329,7 @@ const UPointsPage = () => {
               <form onSubmit={handleLogin} className="bg-card rounded-lg p-6 space-y-4">
                 <input required type="email" placeholder="Email" value={loginForm.email} onChange={e => setLoginForm(p => ({ ...p, email: e.target.value }))} className="w-full px-4 py-3 bg-muted border border-border rounded text-sm focus:outline-none focus:ring-2 focus:ring-primary" />
                 <input required type="password" placeholder="Password" value={loginForm.password} onChange={e => setLoginForm(p => ({ ...p, password: e.target.value }))} className="w-full px-4 py-3 bg-muted border border-border rounded text-sm focus:outline-none focus:ring-2 focus:ring-primary" />
-                <button type="submit" disabled={submitting} className="w-full bg-secondary text-secondary-foreground py-3 rounded-[2px] text-sm font-bold tracking-[0.1em] uppercase hover:bg-umrah-gold-dark transition-all disabled:opacity-50">
+                <button type="submit" disabled={submitting} className="w-full bg-primary text-primary-foreground py-3 rounded-[2px] text-sm font-bold tracking-[0.1em] uppercase hover:bg-primary/90 transition-all disabled:opacity-50">
                   {submitting ? 'Signing In...' : 'Sign In'}
                 </button>
               </form>

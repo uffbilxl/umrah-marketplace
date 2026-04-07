@@ -75,7 +75,7 @@ const DealsPage = () => {
                     </div>
                   ))}
                 </div>
-                <Link to="/shop" className="inline-flex items-center gap-2 bg-secondary text-umrah-black px-8 py-3.5 rounded-[2px] text-sm font-bold tracking-[0.15em] uppercase hover:bg-umrah-white transition-all">
+                <Link to="/shop" className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-8 py-3.5 rounded-[2px] text-sm font-bold tracking-[0.15em] uppercase hover:bg-primary/90 transition-all">
                   Shop This Deal <i className="fas fa-arrow-right" />
                 </Link>
               </div>

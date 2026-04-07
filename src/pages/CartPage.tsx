@@ -109,7 +109,7 @@ const CartPage = () => {
               <div className="flex justify-between font-header text-lg mb-6">
                 <span>Total</span><span>£{total.toFixed(2)}</span>
               </div>
-              <button onClick={() => user ? navigate('/checkout') : navigate('/upoints')} className="w-full bg-secondary text-secondary-foreground py-3 rounded-[2px] text-sm font-bold tracking-[0.1em] uppercase hover:bg-umrah-gold-dark transition-all">
+              <button onClick={() => user ? navigate('/checkout') : navigate('/upoints')} className="w-full bg-primary text-primary-foreground py-3 rounded-[2px] text-sm font-bold tracking-[0.1em] uppercase hover:bg-primary/90 transition-all">
                 {user ? 'Proceed to Checkout' : 'Sign In to Checkout'}
               </button>
             </div>

@@ -5,6 +5,7 @@ import { useAuth } from '@/contexts/AuthContext';
 import { useCart } from '@/contexts/CartContext';
 import { toast } from 'sonner';
 import AuthModal from '@/components/AuthModal';
+import PatternOverlay from '@/components/PatternOverlay';
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);

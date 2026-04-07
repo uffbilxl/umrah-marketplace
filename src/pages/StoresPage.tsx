@@ -4,13 +4,13 @@ import Footer from '@/components/Footer';
 
 
 const stores = [
-  { name: 'Leicester — HQ', address: '123 Retail Park, Leicester, LE1 1AA', hours: 'Mon–Sun: 8:00am – 10:00pm', tel: '0116 000 0000', open: true, maps: 'https://maps.google.com/?q=Leicester+LE1+1AA' },
-  { name: 'Liverpool', address: '45 City Road, Liverpool, L1 4AB', hours: 'Mon–Sun: 8:00am – 10:00pm', tel: '0151 000 0000', open: true, maps: 'https://maps.google.com/?q=Liverpool+L1+4AB' },
-  { name: 'Huddersfield', address: '78 Market Street, Huddersfield, HD1 2CD', hours: 'Mon–Sun: 8:00am – 10:00pm', tel: '01484 000 000', open: true, maps: 'https://maps.google.com/?q=Huddersfield+HD1+2CD' },
-  { name: 'Northampton', address: '12 Retail Avenue, Northampton, NN1 3EF', hours: 'Mon–Sun: 8:00am – 10:00pm', tel: '01604 000 000', open: true, maps: 'https://maps.google.com/?q=Northampton+NN1+3EF' },
-  { name: 'Birmingham', address: '', hours: '', tel: '', open: false, maps: '' },
-  { name: 'Manchester', address: '', hours: '', tel: '', open: false, maps: '' },
-  { name: 'Leeds', address: '', hours: '', tel: '', open: false, maps: '' },
+  { name: 'Leicester — HQ', address: '123 Retail Park, Leicester, LE1 1AA', hours: 'Mon–Sun: 8:00am – 10:00pm', tel: '0116 000 0000', open: true, maps: 'https://maps.google.com/?q=Leicester+LE1+1AA', embed: 'Leicester+LE1+1AA' },
+  { name: 'Liverpool', address: '45 City Road, Liverpool, L1 4AB', hours: 'Mon–Sun: 8:00am – 10:00pm', tel: '0151 000 0000', open: true, maps: 'https://maps.google.com/?q=Liverpool+L1+4AB', embed: 'Liverpool+L1+4AB' },
+  { name: 'Huddersfield', address: '78 Market Street, Huddersfield, HD1 2CD', hours: 'Mon–Sun: 8:00am – 10:00pm', tel: '01484 000 000', open: true, maps: 'https://maps.google.com/?q=Huddersfield+HD1+2CD', embed: 'Huddersfield+HD1+2CD' },
+  { name: 'Northampton', address: '12 Retail Avenue, Northampton, NN1 3EF', hours: 'Mon–Sun: 8:00am – 10:00pm', tel: '01604 000 000', open: true, maps: 'https://maps.google.com/?q=Northampton+NN1+3EF', embed: 'Northampton+NN1+3EF' },
+  { name: 'Birmingham', address: '', hours: '', tel: '', open: false, maps: '', embed: '' },
+  { name: 'Manchester', address: '', hours: '', tel: '', open: false, maps: '', embed: '' },
+  { name: 'Leeds', address: '', hours: '', tel: '', open: false, maps: '', embed: '' },
 ];
 
 const StoresPage = () => {

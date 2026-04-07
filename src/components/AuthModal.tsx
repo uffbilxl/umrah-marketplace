@@ -133,7 +133,7 @@ const AuthModal = ({ open, onClose }: AuthModalProps) => {
               <h2 className="font-header text-xl tracking-[0.08em] uppercase mb-2">Welcome to U Points, {successName}!</h2>
               <div className="gold-line mx-auto" />
               <p className="text-sm text-muted-foreground mb-6">You've earned 0 pts — start shopping to earn your first points!</p>
-              <a href="/shop" className="inline-block bg-secondary text-secondary-foreground px-8 py-3 rounded-[2px] text-sm font-bold tracking-[0.1em] uppercase hover:bg-umrah-gold-dark transition-all">
+              <a href="/shop" className="inline-block bg-primary text-primary-foreground px-8 py-3 rounded-[2px] text-sm font-bold tracking-[0.1em] uppercase hover:bg-primary/90 transition-all">
                 Start Shopping
               </a>
             </div>
@@ -164,7 +164,7 @@ const AuthModal = ({ open, onClose }: AuthModalProps) => {
                   </label>
                   <button type="button" onClick={handleForgotPassword} className="text-xs text-secondary hover:underline">Forgot password?</button>
                 </div>
-                <button type="submit" disabled={loading} className="w-full bg-secondary text-secondary-foreground py-3 rounded-[2px] font-header text-sm font-bold tracking-[0.1em] uppercase hover:bg-umrah-gold-dark transition-all disabled:opacity-50 flex items-center justify-center gap-2">
+                <button type="submit" disabled={loading} className="w-full bg-primary text-primary-foreground py-3 rounded-[2px] font-header text-sm font-bold tracking-[0.1em] uppercase hover:bg-primary/90 transition-all disabled:opacity-50 flex items-center justify-center gap-2">
                   {loading ? <><Loader2 className="w-4 h-4 animate-spin" /> Signing In...</> : 'Sign In'}
                 </button>
               </form>
@@ -245,7 +245,7 @@ const AuthModal = ({ open, onClose }: AuthModalProps) => {
                   </label>
                   {fieldErr('terms')}
                 </div>
-                <button type="submit" disabled={loading} className="w-full bg-secondary text-secondary-foreground py-3 rounded-[2px] font-header text-sm font-bold tracking-[0.1em] uppercase hover:bg-umrah-gold-dark transition-all disabled:opacity-50 flex items-center justify-center gap-2">
+                <button type="submit" disabled={loading} className="w-full bg-primary text-primary-foreground py-3 rounded-[2px] font-header text-sm font-bold tracking-[0.1em] uppercase hover:bg-primary/90 transition-all disabled:opacity-50 flex items-center justify-center gap-2">
                   {loading ? <><Loader2 className="w-4 h-4 animate-spin" /> Creating Account...</> : 'Create Account & Join U Points'}
                 </button>
               </form>

@@ -321,7 +321,7 @@ const UPointsPage = () => {
                   <option value="">Preferred Store</option>
                   {STORES.map(s => <option key={s} value={s}>{s}</option>)}
                 </select>
-                <button type="submit" disabled={submitting} className="w-full bg-secondary text-secondary-foreground py-3 rounded-[2px] text-sm font-bold tracking-[0.1em] uppercase hover:bg-umrah-gold-dark transition-all disabled:opacity-50">
+                <button type="submit" disabled={submitting} className="w-full bg-primary text-primary-foreground py-3 rounded-[2px] text-sm font-bold tracking-[0.1em] uppercase hover:bg-primary/90 transition-all disabled:opacity-50">
                   {submitting ? 'Creating Account...' : 'Join Now'}
                 </button>
               </form>

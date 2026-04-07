@@ -245,7 +245,7 @@ const ProfilePage = () => {
                     </div>
                     <h3 className="font-header text-lg tracking-[0.08em] uppercase mb-2">No Orders Yet</h3>
                     <p className="text-sm text-muted-foreground mb-6">Start shopping to see your order history here.</p>
-                    <a href="/shop" className="inline-block bg-secondary text-secondary-foreground px-8 py-3 rounded-[2px] text-sm font-bold tracking-[0.1em] uppercase hover:bg-umrah-gold-dark transition-all">
+                    <a href="/shop" className="inline-block bg-primary text-primary-foreground px-8 py-3 rounded-[2px] text-sm font-bold tracking-[0.1em] uppercase hover:bg-primary/90 transition-all">
                       Start Shopping
                     </a>
                   </div>
@@ -308,7 +308,7 @@ const ProfilePage = () => {
                       <div className="text-sm font-semibold mb-4">Based on your {profile.points} pts</div>
                       <button
                         onClick={handleRedeem}
-                        className="bg-secondary text-secondary-foreground px-8 py-3 rounded-[2px] text-sm font-bold tracking-[0.1em] uppercase hover:bg-umrah-gold-dark transition-all"
+                        className="bg-primary text-primary-foreground px-8 py-3 rounded-[2px] text-sm font-bold tracking-[0.1em] uppercase hover:bg-primary/90 transition-all"
                       >
                         Redeem Voucher
                       </button>

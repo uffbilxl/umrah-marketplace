@@ -16,7 +16,7 @@ import ProfilePage from "./pages/ProfilePage";
 import CheckoutPage from "./pages/CheckoutPage";
 import NotFound from "./pages/NotFound";
 import Preloader from "./components/Preloader";
-import ScrollToTop from "./components/ScrollToTop";
+import PageTransition from "./components/PageTransition";
 
 const queryClient = new QueryClient();
 
@@ -25,23 +25,24 @@ const App = () => (
     <TooltipProvider>
       <Sonner />
       <BrowserRouter>
-        <ScrollToTop />
         <AuthProvider>
           <CartProvider>
             <Preloader />
-            <Routes>
-              <Route path="/" element={<HomePage />} />
-              <Route path="/shop" element={<ShopPage />} />
-              <Route path="/product/:id" element={<ProductDetailPage />} />
-              <Route path="/upoints" element={<UPointsPage />} />
-              <Route path="/stores" element={<StoresPage />} />
-              <Route path="/about" element={<AboutPage />} />
-              <Route path="/deals" element={<DealsPage />} />
-              <Route path="/cart" element={<CartPage />} />
-              <Route path="/profile" element={<ProfilePage />} />
-              <Route path="/checkout" element={<CheckoutPage />} />
-              <Route path="*" element={<NotFound />} />
-            </Routes>
+            <PageTransition>
+              <Routes>
+                <Route path="/" element={<HomePage />} />
+                <Route path="/shop" element={<ShopPage />} />
+                <Route path="/product/:id" element={<ProductDetailPage />} />
+                <Route path="/upoints" element={<UPointsPage />} />
+                <Route path="/stores" element={<StoresPage />} />
+                <Route path="/about" element={<AboutPage />} />
+                <Route path="/deals" element={<DealsPage />} />
+                <Route path="/cart" element={<CartPage />} />
+                <Route path="/profile" element={<ProfilePage />} />
+                <Route path="/checkout" element={<CheckoutPage />} />
+                <Route path="*" element={<NotFound />} />
+              </Routes>
+            </PageTransition>
           </CartProvider>
         </AuthProvider>
       </BrowserRouter>

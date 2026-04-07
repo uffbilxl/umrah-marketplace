@@ -180,8 +180,7 @@ const Navbar = () => {
 
       {/* Mobile menu */}
       <div className={`fixed inset-0 bg-umrah-black z-[999] flex flex-col items-center justify-center gap-8 transition-all duration-500 ${mobileOpen ? 'translate-x-0' : 'translate-x-full'}`}>
-        <img src="/images/pattern-left.png" alt="" className="absolute top-0 left-0 h-full w-auto opacity-[0.06] pointer-events-none select-none" />
-        <img src="/images/pattern-right.png" alt="" className="absolute top-0 right-0 h-full w-auto opacity-[0.06] pointer-events-none select-none" />
+        <PatternOverlay opacity={0.1} />
         <Link to="/shop" className="font-header text-3xl text-umrah-white tracking-[0.1em] uppercase hover:text-secondary">Shop</Link>
         <Link to="/deals" className="font-header text-3xl text-umrah-white tracking-[0.1em] uppercase hover:text-secondary">Deals</Link>
         <Link to="/upoints" className="font-header text-3xl text-umrah-white tracking-[0.1em] uppercase hover:text-secondary">U Points</Link>

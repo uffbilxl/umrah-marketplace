@@ -1,11 +1,10 @@
 import { Link } from 'react-router-dom';
+import PatternOverlay from '@/components/PatternOverlay';
 
 const Footer = () => {
   return (
     <footer className="bg-umrah-black pt-20 relative overflow-hidden">
-      {/* Decorative tribal patterns */}
-      <img src="/images/pattern-left.png" alt="" className="absolute top-0 left-0 h-full w-auto opacity-[0.06] pointer-events-none select-none" />
-      <img src="/images/pattern-right.png" alt="" className="absolute top-0 right-0 h-full w-auto opacity-[0.06] pointer-events-none select-none" />
+      <PatternOverlay opacity={0.08} />
       <div className="container-umrah relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-16 pb-16 border-b border-umrah-white/[0.06]">
           {/* Brand */}

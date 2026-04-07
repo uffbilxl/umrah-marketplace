@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-
+import PatternOverlay from '@/components/PatternOverlay';
 
 const dealsList = [
   { id: 1, title: 'Lamb Leg Whole', badge: 'Double Deal', desc: 'Premium whole lamb leg, 100% Halal.', price: '£8.99/kg', original: '£11.99/kg', img: 'https://images.unsplash.com/photo-1588347818036-558601350947?w=600&q=80' },
@@ -52,7 +52,8 @@ const DealsPage = () => {
       <Navbar />
       <main className="min-h-screen">
         {/* Featured deal hero */}
-        <section className="bg-umrah-black pt-28 pb-16">
+        <section className="bg-umrah-black pt-28 pb-16 relative overflow-hidden">
+          <PatternOverlay opacity={0.08} />
           <div className="container-umrah">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div className="rounded-lg overflow-hidden h-[300px] lg:h-[400px]">
@@ -84,7 +85,8 @@ const DealsPage = () => {
         </section>
 
         {/* Filter tabs */}
-        <section className="py-16 bg-muted">
+        <section className="py-16 bg-muted relative overflow-hidden">
+          <PatternOverlay variant="right" opacity={0.06} />
           <div className="container-umrah">
             <div className="flex flex-wrap gap-3 mb-10">
               {filters.map(f => (

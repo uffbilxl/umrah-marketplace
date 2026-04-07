@@ -4,6 +4,7 @@ import { supabase } from '@/integrations/supabase/client';
 import { useAuth } from '@/contexts/AuthContext';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import PatternOverlay from '@/components/PatternOverlay';
 
 import { calcVoucherValue, nextVoucherPointsNeeded, redeemCalc } from '@/lib/points';
 import { toast } from 'sonner';
@@ -73,7 +74,8 @@ const UPointsPage = () => {
     return (
       <>
         <Navbar />
-        <main className="pt-28 pb-20 min-h-screen bg-muted">
+        <main className="pt-28 pb-20 min-h-screen bg-muted relative overflow-hidden">
+          <PatternOverlay opacity={0.06} />
           <div className="container-umrah max-w-[900px]">
             <h1 className="font-header text-3xl tracking-[0.05em] uppercase mb-2">Welcome back, {profile.name}</h1>
             <div className="gold-line" />
@@ -240,9 +242,10 @@ const UPointsPage = () => {
       <Navbar />
       <main className="min-h-screen">
         {/* Hero */}
-        <section className="bg-umrah-black pt-32 pb-20">
+        <section className="bg-umrah-black pt-32 pb-20 relative overflow-hidden">
+          <PatternOverlay opacity={0.08} />
           <div className="container-umrah text-center max-w-[700px]">
-            <span className="section-label">U Points Loyalty</span>
+            <span className="section-label text-secondary">U Points Loyalty</span>
             <h1 className="section-title text-umrah-white">Shop. Earn. Save.</h1>
             <div className="gold-line mx-auto" />
             <p className="section-subtitle text-umrah-white/50 mx-auto">Join U Points and earn rewards every time you shop. Collect points and redeem them for vouchers to save on your next purchase.</p>

@@ -5,6 +5,7 @@ import { useAuth } from '@/contexts/AuthContext';
 import { useCart } from '@/contexts/CartContext';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import PatternOverlay from '@/components/PatternOverlay';
 import { toast } from 'sonner';
 
 const CATEGORIES = ['Fresh Halal Meat', 'Frozen Foods', 'Sauces', 'Masalas & Spices', 'Drinks', 'Fresh Produce', 'Bakery'];
@@ -52,7 +53,8 @@ const ShopPage = () => {
   return (
     <>
       <Navbar />
-      <main className="pt-24 pb-20 min-h-screen bg-muted">
+      <main className="pt-24 pb-20 min-h-screen bg-muted relative overflow-hidden">
+        <PatternOverlay opacity={0.05} />
         <div className="container-umrah">
           <div className="text-center mb-12">
             <span className="section-label">Our Products</span>

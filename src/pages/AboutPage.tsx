@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-
+import PatternOverlay from '@/components/PatternOverlay';
 
 const AboutPage = () => {
   useEffect(() => { document.title = 'About Us | Umrah Supermarket'; }, []);
@@ -21,7 +21,8 @@ const AboutPage = () => {
         </section>
 
         {/* Story */}
-        <section className="py-20 bg-background">
+        <section className="py-20 bg-background relative overflow-hidden">
+          <PatternOverlay variant="left" opacity={0.06} />
           <div className="container-umrah">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
               <div>
@@ -45,7 +46,8 @@ const AboutPage = () => {
         </section>
 
         {/* Core Values */}
-        <section className="py-20 bg-muted">
+        <section className="py-20 bg-muted relative overflow-hidden">
+          <PatternOverlay variant="right" opacity={0.06} />
           <div className="container-umrah">
             <div className="text-center mb-12">
               <span className="section-label">What Drives Us</span>
@@ -83,7 +85,8 @@ const AboutPage = () => {
         </section>
 
         {/* Stats */}
-        <section className="py-16 bg-umrah-black">
+        <section className="py-16 bg-umrah-black relative overflow-hidden">
+          <PatternOverlay opacity={0.08} />
           <div className="container-umrah">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
               {[

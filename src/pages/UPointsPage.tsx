@@ -4,6 +4,7 @@ import { supabase } from '@/integrations/supabase/client';
 import { useAuth } from '@/contexts/AuthContext';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import PatternOverlay from '@/components/PatternOverlay';
 
 import { calcVoucherValue, nextVoucherPointsNeeded, redeemCalc } from '@/lib/points';
 import { toast } from 'sonner';
@@ -73,7 +74,8 @@ const UPointsPage = () => {
     return (
       <>
         <Navbar />
-        <main className="pt-28 pb-20 min-h-screen bg-muted">
+        <main className="pt-28 pb-20 min-h-screen bg-muted relative overflow-hidden">
+          <PatternOverlay opacity={0.06} />
           <div className="container-umrah max-w-[900px]">
             <h1 className="font-header text-3xl tracking-[0.05em] uppercase mb-2">Welcome back, {profile.name}</h1>
             <div className="gold-line" />

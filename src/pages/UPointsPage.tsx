@@ -242,7 +242,8 @@ const UPointsPage = () => {
       <Navbar />
       <main className="min-h-screen">
         {/* Hero */}
-        <section className="bg-umrah-black pt-32 pb-20">
+        <section className="bg-umrah-black pt-32 pb-20 relative overflow-hidden">
+          <PatternOverlay opacity={0.08} />
           <div className="container-umrah text-center max-w-[700px]">
             <span className="section-label">U Points Loyalty</span>
             <h1 className="section-title text-umrah-white">Shop. Earn. Save.</h1>

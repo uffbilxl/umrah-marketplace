@@ -5,7 +5,6 @@ import { useAuth } from '@/contexts/AuthContext';
 import { useCart } from '@/contexts/CartContext';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import Preloader from '@/components/Preloader';
 import { toast } from 'sonner';
 import { calcPoints } from '@/lib/points';
 
@@ -50,7 +49,7 @@ const CartPage = () => {
   if (items.length === 0) {
     return (
       <>
-        <Preloader /><Navbar />
+        <Navbar />
         <main className="pt-28 pb-20 min-h-screen bg-muted">
           <div className="container-umrah text-center py-20">
             <div className="w-24 h-24 bg-secondary/10 rounded-full flex items-center justify-center mx-auto mb-6">
@@ -70,7 +69,7 @@ const CartPage = () => {
 
   return (
     <>
-      <Preloader /><Navbar />
+      <Navbar />
       <main className="pt-28 pb-20 min-h-screen bg-muted">
         <div className="container-umrah">
           <h1 className="section-title mb-8">Your Basket</h1>

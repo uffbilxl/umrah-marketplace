@@ -5,7 +5,6 @@ import { useAuth } from '@/contexts/AuthContext';
 import { useCart } from '@/contexts/CartContext';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import Preloader from '@/components/Preloader';
 import { calcPoints } from '@/lib/points';
 import { toast } from 'sonner';
 
@@ -98,7 +97,7 @@ const CheckoutPage = () => {
   if (complete) {
     return (
       <>
-        <Preloader /><Navbar />
+        <Navbar />
         <main className="pt-28 pb-20 min-h-screen bg-muted">
           <div className="container-umrah max-w-[560px] text-center py-16">
             <div className="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
@@ -137,7 +136,7 @@ const CheckoutPage = () => {
 
   return (
     <>
-      <Preloader /><Navbar />
+      <Navbar />
       <main className="pt-28 pb-20 min-h-screen bg-muted">
         <div className="container-umrah max-w-[900px]">
           <Link to="/cart" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground mb-6 transition-colors">

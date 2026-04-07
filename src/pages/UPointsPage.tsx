@@ -245,7 +245,7 @@ const UPointsPage = () => {
         <section className="bg-umrah-black pt-32 pb-20 relative overflow-hidden">
           <PatternOverlay opacity={0.08} />
           <div className="container-umrah text-center max-w-[700px]">
-            <span className="section-label">U Points Loyalty</span>
+            <span className="section-label text-secondary">U Points Loyalty</span>
             <h1 className="section-title text-umrah-white">Shop. Earn. Save.</h1>
             <div className="gold-line mx-auto" />
             <p className="section-subtitle text-umrah-white/50 mx-auto">Join U Points and earn rewards every time you shop. Collect points and redeem them for vouchers to save on your next purchase.</p>

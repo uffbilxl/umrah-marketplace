@@ -175,7 +175,7 @@ const HomePage = () => {
         <PatternOverlay opacity={0.08} />
         <div className="container-umrah relative z-10">
           <div className="text-center mb-16">
-            <span className="section-label">This Week</span>
+            <span className="section-label text-secondary">This Week</span>
             <h2 className="section-title text-umrah-white">Hot Deals & Offers</h2>
             <div className="gold-line mx-auto" />
             <p className="section-subtitle text-umrah-white/50 mx-auto">Exceptional value through our signature promotions.</p>

@@ -51,8 +51,9 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className={`fixed top-0 left-0 w-full z-[1000] transition-all duration-400 ${navBg}`}>
-        <div className="container-umrah flex items-center justify-between">
+      <nav className={`fixed top-0 left-0 w-full z-[1000] transition-all duration-400 ${navBg} overflow-hidden`}>
+        <PatternOverlay opacity={0.12} />
+        <div className="container-umrah flex items-center justify-between relative z-10">
           <Link to="/" className="flex flex-col items-start">
             <img src="/images/umrah_logo.png" alt="Umrah Supermarket" className="h-10 md:h-12" />
           </Link>
@@ -181,7 +182,7 @@ const Navbar = () => {
 
       {/* Mobile menu */}
       <div className={`fixed inset-0 bg-umrah-black z-[999] flex flex-col items-center justify-center gap-8 transition-all duration-500 ${mobileOpen ? 'translate-x-0' : 'translate-x-full'}`}>
-        <PatternOverlay opacity={0.1} />
+        <PatternOverlay opacity={0.2} />
         <Link to="/shop" className="font-header text-3xl text-umrah-white tracking-[0.1em] uppercase hover:text-secondary">Shop</Link>
         <Link to="/deals" className="font-header text-3xl text-umrah-white tracking-[0.1em] uppercase hover:text-secondary">Deals</Link>
         <Link to="/upoints" className="font-header text-3xl text-umrah-white tracking-[0.1em] uppercase hover:text-secondary">U Points</Link>

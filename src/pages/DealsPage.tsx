@@ -53,7 +53,7 @@ const DealsPage = () => {
       <main className="min-h-screen">
         {/* Featured deal hero */}
         <section className="bg-umrah-black pt-28 pb-16 relative overflow-hidden">
-          <PatternOverlay opacity={0.08} />
+          <PatternOverlay opacity={0.18} />
           <div className="container-umrah">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div className="rounded-lg overflow-hidden h-[300px] lg:h-[400px]">
@@ -86,7 +86,7 @@ const DealsPage = () => {
 
         {/* Filter tabs */}
         <section className="py-16 bg-muted relative overflow-hidden">
-          <PatternOverlay variant="right" opacity={0.06} />
+          <PatternOverlay variant="right" opacity={0.14} />
           <div className="container-umrah">
             <div className="flex flex-wrap gap-3 mb-10">
               {filters.map(f => (

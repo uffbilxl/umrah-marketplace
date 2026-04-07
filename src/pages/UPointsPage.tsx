@@ -75,7 +75,7 @@ const UPointsPage = () => {
       <>
         <Navbar />
         <main className="pt-28 pb-20 min-h-screen bg-muted relative overflow-hidden">
-          <PatternOverlay opacity={0.06} />
+          <PatternOverlay opacity={0.14} />
           <div className="container-umrah max-w-[900px]">
             <h1 className="font-header text-3xl tracking-[0.05em] uppercase mb-2">Welcome back, {profile.name}</h1>
             <div className="gold-line" />
@@ -243,7 +243,7 @@ const UPointsPage = () => {
       <main className="min-h-screen">
         {/* Hero */}
         <section className="bg-umrah-black pt-32 pb-20 relative overflow-hidden">
-          <PatternOverlay opacity={0.08} />
+          <PatternOverlay opacity={0.18} />
           <div className="container-umrah text-center max-w-[700px]">
             <span className="section-label text-secondary">U Points Loyalty</span>
             <h1 className="section-title text-umrah-white">Shop. Earn. Save.</h1>

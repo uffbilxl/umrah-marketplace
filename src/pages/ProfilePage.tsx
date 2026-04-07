@@ -30,6 +30,7 @@ const ProfilePage = () => {
   const [orders, setOrders] = useState<any[]>([]);
   const [ordersLoading, setOrdersLoading] = useState(true);
   const [expandedOrder, setExpandedOrder] = useState<number | null>(null);
+  const [vouchers, setVouchers] = useState<any[]>([]);
 
   useEffect(() => { document.title = 'My Profile | Umrah Supermarket'; }, []);
 

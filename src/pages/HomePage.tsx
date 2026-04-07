@@ -20,7 +20,7 @@ const categories = [
 const deals = [
   { title: 'Lamb Leg Whole', desc: 'Premium quality whole lamb leg, 100% Halal certified and fresh.', current: '£8.99/kg', original: '£11.99/kg', badge: 'Double Deal', img: 'https://images.unsplash.com/photo-1588347818036-558601350947?w=600&q=80' },
   { title: 'Premium Spice Blend', desc: 'Authentic 500g mixed spice blend perfect for marinades and curries.', current: '£4.50', original: '£6.00', badge: 'Mega Pack', img: 'https://images.unsplash.com/photo-1518569656558-1f25e69d93d7?w=600&q=80' },
-  { title: 'Basmati Rice 10kg', desc: 'Extra long grain premium Basmati rice, perfect for large family meals.', current: '£12.00', original: '£15.00', badge: 'Save 20%', img: 'https://images.unsplash.com/photo-1587049352847-4d4b126a5424?w=600&q=80' },
+  { title: 'Basmati Rice 10kg', desc: 'Extra long grain premium Basmati rice, perfect for large family meals.', current: '£12.00', original: '£15.00', badge: 'Save 20%', img: 'https://fatimacooks.net/wp-content/uploads/2024/07/Basmati-Rice-7.jpg' },
 ];
 
 const marqueeItems = [

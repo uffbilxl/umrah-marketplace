@@ -99,15 +99,6 @@ const HomePage = () => {
           ))}
         </div>
 
-        {/* Stats - centered at bottom */}
-        <div className="hidden md:flex absolute bottom-8 left-1/2 -translate-x-1/2 gap-16 z-10">
-          {[{ n: '7+', l: 'Stores UK Wide' }, { n: '5K+', l: 'Products' }, { n: '100%', l: 'Halal Certified' }].map(s => (
-            <div key={s.l} className="text-center">
-              <div className="font-header text-[2rem] text-secondary leading-none mb-1">{s.n}</div>
-              <div className="text-[0.65rem] text-umrah-white/50 tracking-[0.2em] uppercase">{s.l}</div>
-            </div>
-          ))}
-        </div>
       </section>
 
       {/* Marquee */}

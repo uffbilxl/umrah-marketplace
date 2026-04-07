@@ -138,7 +138,7 @@ const HomePage = () => {
 
       {/* Categories */}
       <section className="py-24 md:py-32 bg-background relative overflow-hidden">
-        <PatternOverlay variant="left" opacity={0.07} />
+        <PatternOverlay variant="left" opacity={0.15} />
         <div className="container-umrah">
           <div className="text-center mb-16">
             <span className="section-label">Our Range</span>
@@ -172,7 +172,7 @@ const HomePage = () => {
       {/* Deals */}
       <section className="py-24 md:py-32 bg-umrah-black relative overflow-hidden">
         <div className="absolute top-0 right-0 w-[400px] h-[400px] border border-secondary/5 rounded-full translate-x-1/2 -translate-y-1/2" />
-        <PatternOverlay opacity={0.08} />
+        <PatternOverlay opacity={0.18} />
         <div className="container-umrah relative z-10">
           <div className="text-center mb-16">
             <span className="section-label text-secondary">This Week</span>
@@ -204,7 +204,7 @@ const HomePage = () => {
 
       {/* Loyalty / U Points */}
       <section className="py-24 md:py-32 bg-background overflow-hidden relative">
-        <PatternOverlay variant="right" opacity={0.07} />
+        <PatternOverlay variant="right" opacity={0.15} />
         <div className="container-umrah">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
             <div>

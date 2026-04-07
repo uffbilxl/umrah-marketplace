@@ -54,7 +54,7 @@ const ShopPage = () => {
     <>
       <Navbar />
       <main className="pt-24 pb-20 min-h-screen bg-muted relative overflow-hidden">
-        <PatternOverlay opacity={0.05} />
+        <PatternOverlay opacity={0.14} />
         <div className="container-umrah">
           <div className="text-center mb-12">
             <span className="section-label">Our Products</span>

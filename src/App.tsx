@@ -12,6 +12,7 @@ import StoresPage from "./pages/StoresPage";
 import AboutPage from "./pages/AboutPage";
 import DealsPage from "./pages/DealsPage";
 import CartPage from "./pages/CartPage";
+import ProfilePage from "./pages/ProfilePage";
 import NotFound from "./pages/NotFound";
 import Preloader from "./components/Preloader";
 
@@ -34,6 +35,7 @@ const App = () => (
               <Route path="/about" element={<AboutPage />} />
               <Route path="/deals" element={<DealsPage />} />
               <Route path="/cart" element={<CartPage />} />
+              <Route path="/profile" element={<ProfilePage />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </CartProvider>

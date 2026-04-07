@@ -43,7 +43,7 @@ const HomePage = () => {
         <div className="absolute inset-0 bg-gradient-to-br from-umrah-black/[0.88] via-umrah-black/50 to-umrah-black/75" />
         <div className="absolute inset-0 opacity-[0.04]" style={{ backgroundImage: 'radial-gradient(circle at 25% 25%, hsl(var(--umrah-gold)) 1px, transparent 1px), radial-gradient(circle at 75% 75%, hsl(var(--umrah-gold)) 1px, transparent 1px)', backgroundSize: '60px 60px' }} />
 
-        <div className="container-umrah relative z-10 max-w-[750px]">
+        <div className="container-umrah relative z-10 max-w-[650px] xl:mx-auto xl:text-center xl:flex xl:flex-col xl:items-center">
           <div className="inline-flex items-center gap-2.5 bg-secondary/10 border border-secondary/30 px-5 py-2 rounded-[2px] mb-8">
             <i className="fas fa-star text-secondary text-[0.6rem]" />
             <span className="text-[0.7rem] font-semibold text-secondary tracking-[0.25em] uppercase">Your One-Stop Multicultural Supermarket</span>

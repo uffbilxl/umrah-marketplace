@@ -77,7 +77,7 @@ const HomePage = () => {
             Premium Halal meats, fresh seasonal produce, and authentic ingredients sourced from African, Caribbean, and Asian markets — all under one roof.
           </p>
           <div className="flex gap-4 flex-wrap justify-center">
-            <Link to="/shop" className="inline-flex items-center gap-2.5 bg-secondary text-umrah-black px-9 py-4 font-body text-[0.8rem] font-bold tracking-[0.15em] uppercase border-2 border-secondary rounded-[2px] hover:bg-transparent hover:text-secondary transition-all hover:-translate-y-0.5 hover:shadow-[var(--shadow-gold)]">
+            <Link to="/shop" className="inline-flex items-center gap-2.5 bg-primary text-primary-foreground px-9 py-4 font-body text-[0.8rem] font-bold tracking-[0.15em] uppercase border-2 border-primary rounded-[2px] hover:bg-transparent hover:text-primary hover:border-primary transition-all hover:-translate-y-0.5 hover:shadow-[0_8px_30px_rgba(26,77,46,0.3)]">
               Explore Our Range <i className="fas fa-arrow-right" />
             </Link>
             <Link to="/upoints" className="inline-flex items-center gap-2.5 bg-transparent text-umrah-white px-9 py-4 font-body text-[0.8rem] font-bold tracking-[0.15em] uppercase border-2 border-umrah-white/30 rounded-[2px] hover:border-umrah-white hover:bg-umrah-white hover:text-umrah-black transition-all hover:-translate-y-0.5">

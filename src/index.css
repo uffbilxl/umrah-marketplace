@@ -87,7 +87,7 @@
 @layer components {
   .section-label {
     font-family: var(--font-body);
-    @apply text-xs font-semibold tracking-[0.3em] uppercase text-secondary inline-block mb-3;
+    @apply text-xs font-semibold tracking-[0.3em] uppercase text-primary inline-block mb-3;
   }
   .section-title {
     font-family: var(--font-header);

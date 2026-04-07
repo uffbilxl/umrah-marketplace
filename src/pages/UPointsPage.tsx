@@ -163,6 +163,7 @@ const UPointsPage = () => {
                       if (error) { toast.error('Failed to generate voucher'); return; }
                       await supabase.from('profiles').update({ points: pointsRemaining }).eq('id', user.id);
                       await refreshProfile();
+                      await fetchData();
                       toast.success(`Voucher ${code} created! Worth £${val.toFixed(2)} — apply it at checkout.`);
                     }}
                     className="bg-secondary text-secondary-foreground px-8 py-3 rounded-[2px] text-sm font-bold tracking-[0.1em] uppercase hover:bg-umrah-gold-dark transition-all"

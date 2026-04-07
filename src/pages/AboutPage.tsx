@@ -1,14 +1,14 @@
 import { useEffect } from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import Preloader from '@/components/Preloader';
+
 
 const AboutPage = () => {
   useEffect(() => { document.title = 'About Us | Umrah Supermarket'; }, []);
 
   return (
     <>
-      <Preloader /><Navbar />
+      <Navbar />
       <main className="min-h-screen">
         {/* Hero */}
         <section className="relative h-[50vh] min-h-[400px] flex items-center justify-center overflow-hidden">

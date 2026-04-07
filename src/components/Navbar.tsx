@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { ShoppingBasket, User, ChevronDown, LogOut } from 'lucide-react';
+import { ShoppingBasket, User, ChevronDown, LogOut, Plus, Minus, Trash2 } from 'lucide-react';
 import { useAuth } from '@/contexts/AuthContext';
 import { useCart } from '@/contexts/CartContext';
 import { toast } from 'sonner';
@@ -12,7 +12,7 @@ const Navbar = () => {
   const [authOpen, setAuthOpen] = useState(false);
   const [userMenuOpen, setUserMenuOpen] = useState(false);
   const { user, profile, signOut } = useAuth();
-  const { totalItems, items: cartItems, subtotal: cartSubtotal } = useCart();
+  const { totalItems, items: cartItems, subtotal: cartSubtotal, updateQuantity, removeItem } = useCart();
   const location = useLocation();
   const navigate = useNavigate();
   const menuRef = useRef<HTMLDivElement>(null);
@@ -79,17 +79,38 @@ const Navbar = () => {
               </Link>
               {/* Basket hover dropdown */}
               {totalItems > 0 && (
-                <div className="absolute right-0 top-full mt-2 w-[300px] bg-card rounded-lg shadow-[var(--shadow-lg)] border border-border opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                <div className="absolute right-0 top-full mt-2 w-[340px] bg-card rounded-lg shadow-[var(--shadow-lg)] border border-border opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
                   <div className="p-4">
                     <h4 className="font-header text-xs tracking-[0.1em] uppercase mb-3">Your Basket ({totalItems})</h4>
-                    <div className="space-y-3 max-h-[220px] overflow-y-auto">
+                    <div className="space-y-3 max-h-[260px] overflow-y-auto">
                       {cartItems.slice(0, 5).map(item => (
                         <div key={item.product_id} className="flex items-center gap-3">
                           <img src={item.image_url || '/placeholder.svg'} alt={item.name} className="w-10 h-10 rounded object-cover shrink-0" />
                           <div className="flex-1 min-w-0">
                             <div className="text-xs font-medium truncate">{item.name}</div>
-                            <div className="text-xs text-muted-foreground">×{item.quantity} · £{(item.price * item.quantity).toFixed(2)}</div>
+                            <div className="text-xs text-muted-foreground">£{(item.price * item.quantity).toFixed(2)}</div>
                           </div>
+                          <div className="flex items-center gap-1">
+                            <button
+                              onClick={(e) => { e.preventDefault(); updateQuantity(item.product_id, item.quantity - 1); }}
+                              className="w-6 h-6 flex items-center justify-center rounded bg-muted hover:bg-primary hover:text-primary-foreground transition-colors"
+                            >
+                              <Minus className="w-3 h-3" />
+                            </button>
+                            <span className="text-xs font-semibold w-5 text-center">{item.quantity}</span>
+                            <button
+                              onClick={(e) => { e.preventDefault(); updateQuantity(item.product_id, item.quantity + 1); }}
+                              className="w-6 h-6 flex items-center justify-center rounded bg-muted hover:bg-primary hover:text-primary-foreground transition-colors"
+                            >
+                              <Plus className="w-3 h-3" />
+                            </button>
+                          </div>
+                          <button
+                            onClick={(e) => { e.preventDefault(); removeItem(item.product_id); toast.info('Item removed'); }}
+                            className="w-6 h-6 flex items-center justify-center text-muted-foreground hover:text-destructive transition-colors"
+                          >
+                            <Trash2 className="w-3 h-3" />
+                          </button>
                         </div>
                       ))}
                       {cartItems.length > 5 && (
@@ -98,7 +119,7 @@ const Navbar = () => {
                     </div>
                     <div className="border-t border-border mt-3 pt-3 flex justify-between items-center">
                       <span className="font-header text-sm">£{cartSubtotal.toFixed(2)}</span>
-                      <Link to="/cart" className="bg-secondary text-secondary-foreground px-4 py-1.5 rounded-[2px] text-xs font-bold tracking-[0.1em] uppercase hover:bg-umrah-gold-dark transition-all">
+                      <Link to="/cart" className="bg-primary text-primary-foreground px-4 py-1.5 rounded-[2px] text-xs font-bold tracking-[0.1em] uppercase hover:bg-primary/90 transition-all">
                         View Basket
                       </Link>
                     </div>

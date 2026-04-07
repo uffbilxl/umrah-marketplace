@@ -5,7 +5,6 @@ import { useAuth } from '@/contexts/AuthContext';
 import { useCart } from '@/contexts/CartContext';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import Preloader from '@/components/Preloader';
 import { toast } from 'sonner';
 
 const CATEGORIES = ['Fresh Halal Meat', 'Frozen Foods', 'Sauces', 'Masalas & Spices', 'Drinks', 'Fresh Produce', 'Bakery'];
@@ -52,7 +51,6 @@ const ShopPage = () => {
 
   return (
     <>
-      <Preloader />
       <Navbar />
       <main className="pt-24 pb-20 min-h-screen bg-muted">
         <div className="container-umrah">

@@ -5,7 +5,6 @@ import { useAuth } from '@/contexts/AuthContext';
 import { useCart } from '@/contexts/CartContext';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import Preloader from '@/components/Preloader';
 
 const ProductDetailPage = () => {
   const { id } = useParams<{ id: string }>();
@@ -31,15 +30,14 @@ const ProductDetailPage = () => {
     fetch();
   }, [id]);
 
-  if (loading) return <><Preloader /><Navbar /><div className="pt-32 pb-20 text-center min-h-screen">Loading...</div><Footer /></>;
-  if (!product) return <><Preloader /><Navbar /><div className="pt-32 pb-20 text-center min-h-screen">Product not found.</div><Footer /></>;
+  if (loading) return <><Navbar /><div className="pt-32 pb-20 text-center min-h-screen">Loading...</div><Footer /></>;
+  if (!product) return <><Navbar /><div className="pt-32 pb-20 text-center min-h-screen">Product not found.</div><Footer /></>;
 
   const memberPrice = user && product.member_discount > 0 ? product.price * (1 - product.member_discount / 100) : null;
   const pts = Math.floor(product.price * 10);
 
   return (
     <>
-      <Preloader />
       <Navbar />
       <main className="pt-28 pb-20 min-h-screen bg-background">
         <div className="container-umrah">
@@ -55,7 +53,7 @@ const ProductDetailPage = () => {
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
             {/* Image */}
             <div className="lg:col-span-3">
-              <div className="rounded-lg overflow-hidden aspect-[4/3]">
+              <div className="rounded-lg overflow-hidden aspect-[4/3] border border-border">
                 <img src={product.image_url || '/placeholder.svg'} alt={product.name} className="w-full h-full object-cover" />
               </div>
             </div>
@@ -65,8 +63,21 @@ const ProductDetailPage = () => {
               {product.brand && <span className="text-sm text-muted-foreground tracking-[0.1em] uppercase">{product.brand}</span>}
               <h1 className="font-header text-3xl tracking-[0.05em] uppercase mt-2 mb-2">{product.name}</h1>
               <p className="text-sm text-muted-foreground mb-1">{product.category} · {product.weight}</p>
+
+              {/* Stock status */}
+              <div className="flex items-center gap-2 mt-2 mb-4">
+                {product.in_stock ? (
+                  <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-primary bg-primary/10 px-3 py-1 rounded-full">
+                    <span className="w-1.5 h-1.5 bg-primary rounded-full" /> In Stock
+                  </span>
+                ) : (
+                  <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-destructive bg-destructive/10 px-3 py-1 rounded-full">
+                    <span className="w-1.5 h-1.5 bg-destructive rounded-full" /> Out of Stock
+                  </span>
+                )}
+              </div>
               
-              <div className="mt-6 mb-4">
+              <div className="mt-4 mb-4">
                 {memberPrice ? (
                   <div className="flex items-baseline gap-3">
                     <span className="font-header text-3xl text-primary">£{memberPrice.toFixed(2)}</span>
@@ -78,9 +89,95 @@ const ProductDetailPage = () => {
                 )}
               </div>
 
-              <div className="inline-flex items-center gap-2 bg-secondary/10 text-secondary px-4 py-2 rounded mb-8">
+              <div className="inline-flex items-center gap-2 bg-secondary/10 text-secondary px-4 py-2 rounded mb-6">
                 <i className="fas fa-star text-sm" />
                 <span className="text-sm font-semibold">Earn {pts} pts with this purchase</span>
+              </div>
+
+              {/* Product Information */}
+              <div className="border-t border-border pt-6 mb-6 space-y-4">
+                <h3 className="font-header text-sm tracking-[0.1em] uppercase text-primary">Product Details</h3>
+                <div className="grid grid-cols-2 gap-3 text-sm">
+                  {product.brand && (
+                    <div className="bg-muted rounded-lg p-3">
+                      <span className="text-muted-foreground text-xs block mb-0.5">Brand</span>
+                      <span className="font-semibold">{product.brand}</span>
+                    </div>
+                  )}
+                  {product.weight && (
+                    <div className="bg-muted rounded-lg p-3">
+                      <span className="text-muted-foreground text-xs block mb-0.5">Weight / Size</span>
+                      <span className="font-semibold">{product.weight}</span>
+                    </div>
+                  )}
+                  <div className="bg-muted rounded-lg p-3">
+                    <span className="text-muted-foreground text-xs block mb-0.5">Category</span>
+                    <span className="font-semibold">{product.category}</span>
+                  </div>
+                  <div className="bg-muted rounded-lg p-3">
+                    <span className="text-muted-foreground text-xs block mb-0.5">Halal Certified</span>
+                    <span className="font-semibold text-primary">✓ Yes</span>
+                  </div>
+                </div>
+
+                {/* Key features by category */}
+                <div className="mt-4">
+                  <h4 className="text-xs text-muted-foreground uppercase tracking-wider mb-2">Key Information</h4>
+                  <ul className="space-y-2">
+                    {product.category === 'Fresh Halal Meat' && (
+                      <>
+                        <li className="flex items-start gap-2 text-sm"><i className="fas fa-check text-primary text-xs mt-1" /> 100% Halal certified, hand-slaughtered</li>
+                        <li className="flex items-start gap-2 text-sm"><i className="fas fa-check text-primary text-xs mt-1" /> Sourced from trusted UK & international farms</li>
+                        <li className="flex items-start gap-2 text-sm"><i className="fas fa-check text-primary text-xs mt-1" /> Fresh delivery to stores daily</li>
+                      </>
+                    )}
+                    {product.category === 'Frozen Foods' && (
+                      <>
+                        <li className="flex items-start gap-2 text-sm"><i className="fas fa-check text-primary text-xs mt-1" /> Flash frozen for maximum freshness</li>
+                        <li className="flex items-start gap-2 text-sm"><i className="fas fa-check text-primary text-xs mt-1" /> Store at -18°C or below</li>
+                        <li className="flex items-start gap-2 text-sm"><i className="fas fa-check text-primary text-xs mt-1" /> See packaging for cooking instructions</li>
+                      </>
+                    )}
+                    {product.category === 'Masalas & Spices' && (
+                      <>
+                        <li className="flex items-start gap-2 text-sm"><i className="fas fa-check text-primary text-xs mt-1" /> Authentic blends from traditional recipes</li>
+                        <li className="flex items-start gap-2 text-sm"><i className="fas fa-check text-primary text-xs mt-1" /> No artificial colours or preservatives</li>
+                        <li className="flex items-start gap-2 text-sm"><i className="fas fa-check text-primary text-xs mt-1" /> Store in a cool, dry place</li>
+                      </>
+                    )}
+                    {product.category === 'Fresh Produce' && (
+                      <>
+                        <li className="flex items-start gap-2 text-sm"><i className="fas fa-check text-primary text-xs mt-1" /> Sourced fresh from seasonal farms</li>
+                        <li className="flex items-start gap-2 text-sm"><i className="fas fa-check text-primary text-xs mt-1" /> Quality checked on arrival</li>
+                        <li className="flex items-start gap-2 text-sm"><i className="fas fa-check text-primary text-xs mt-1" /> Best consumed within 3-5 days</li>
+                      </>
+                    )}
+                    {product.category === 'Drinks' && (
+                      <>
+                        <li className="flex items-start gap-2 text-sm"><i className="fas fa-check text-primary text-xs mt-1" /> Wide range of international beverages</li>
+                        <li className="flex items-start gap-2 text-sm"><i className="fas fa-check text-primary text-xs mt-1" /> Serve chilled for best taste</li>
+                      </>
+                    )}
+                    {product.category === 'Sauces' && (
+                      <>
+                        <li className="flex items-start gap-2 text-sm"><i className="fas fa-check text-primary text-xs mt-1" /> Authentic flavours from around the world</li>
+                        <li className="flex items-start gap-2 text-sm"><i className="fas fa-check text-primary text-xs mt-1" /> Refrigerate after opening</li>
+                      </>
+                    )}
+                    {product.category === 'Bakery' && (
+                      <>
+                        <li className="flex items-start gap-2 text-sm"><i className="fas fa-check text-primary text-xs mt-1" /> Freshly baked daily in-store</li>
+                        <li className="flex items-start gap-2 text-sm"><i className="fas fa-check text-primary text-xs mt-1" /> Best consumed on day of purchase</li>
+                      </>
+                    )}
+                    {!['Fresh Halal Meat', 'Frozen Foods', 'Masalas & Spices', 'Fresh Produce', 'Drinks', 'Sauces', 'Bakery'].includes(product.category) && (
+                      <>
+                        <li className="flex items-start gap-2 text-sm"><i className="fas fa-check text-primary text-xs mt-1" /> Quality assured product</li>
+                        <li className="flex items-start gap-2 text-sm"><i className="fas fa-check text-primary text-xs mt-1" /> Check packaging for full details</li>
+                      </>
+                    )}
+                  </ul>
+                </div>
               </div>
 
               {/* Qty + Add */}
@@ -99,7 +196,21 @@ const ProductDetailPage = () => {
                 </button>
               </div>
 
-              {!product.in_stock && <p className="text-destructive text-sm font-medium">Currently out of stock</p>}
+              {/* Delivery & Returns info */}
+              <div className="border-t border-border pt-4 space-y-3">
+                <div className="flex items-center gap-3 text-sm">
+                  <i className="fas fa-truck text-primary" />
+                  <span>Free delivery on orders over £50</span>
+                </div>
+                <div className="flex items-center gap-3 text-sm">
+                  <i className="fas fa-store text-primary" />
+                  <span>Available for in-store collection</span>
+                </div>
+                <div className="flex items-center gap-3 text-sm">
+                  <i className="fas fa-shield-alt text-primary" />
+                  <span>Freshness guaranteed or money back</span>
+                </div>
+              </div>
             </div>
           </div>
 

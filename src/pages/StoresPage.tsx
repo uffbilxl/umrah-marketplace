@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import Preloader from '@/components/Preloader';
+
 
 const stores = [
   { name: 'Leicester — HQ', address: '123 Retail Park, Leicester, LE1 1AA', hours: 'Mon–Sun: 8:00am – 10:00pm', tel: '0116 000 0000', open: true, maps: 'https://maps.google.com/?q=Leicester+LE1+1AA' },
@@ -22,7 +22,7 @@ const StoresPage = () => {
 
   return (
     <>
-      <Preloader /><Navbar />
+      <Navbar />
       <main className="pt-28 pb-20 min-h-screen bg-muted">
         <div className="container-umrah">
           <div className="text-center mb-12">

@@ -178,6 +178,33 @@ const UPointsPage = () => {
               )}
             </div>
 
+            {/* Available Vouchers */}
+            {vouchers.length > 0 && (
+              <div className="bg-card rounded-lg p-6 mb-8">
+                <h3 className="font-header text-sm tracking-[0.1em] uppercase mb-4">Your Saved Vouchers</h3>
+                <div className="space-y-3">
+                  {vouchers.map(v => (
+                    <div key={v.id} className="flex items-center justify-between bg-secondary/5 border border-secondary/20 rounded-lg p-4">
+                      <div>
+                        <span className="font-mono font-bold text-sm tracking-wider">{v.code}</span>
+                        <div className="text-xs text-muted-foreground mt-0.5">Created {new Date(v.created_at).toLocaleDateString('en-GB')}</div>
+                      </div>
+                      <div className="text-right">
+                        <div className="font-header text-lg text-secondary">£{Number(v.value).toFixed(2)}</div>
+                        <button
+                          onClick={() => { navigator.clipboard.writeText(v.code); toast.success('Voucher code copied!'); }}
+                          className="text-xs text-primary hover:text-primary/80 font-semibold mt-0.5"
+                        >
+                          <i className="fas fa-copy mr-1" />Copy
+                        </button>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+                <p className="text-xs text-muted-foreground mt-3">Enter these codes at checkout to apply the discount.</p>
+              </div>
+            )}
+
             <button onClick={() => signOut().then(() => navigate('/'))} className="bg-destructive text-destructive-foreground px-8 py-3 rounded-[2px] text-sm font-semibold tracking-[0.1em] uppercase hover:bg-destructive/90 transition-all">
               Logout
             </button>

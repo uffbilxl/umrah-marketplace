@@ -144,33 +144,51 @@ const UPointsPage = () => {
 
             {/* Voucher Redemption */}
             <div className="bg-card rounded-lg p-6 mb-8">
-              <h3 className="font-header text-sm tracking-[0.1em] uppercase mb-4">Your Voucher</h3>
-              {voucherValue > 0 ? (
-                <div className="text-center">
-                  <div className="font-header text-3xl text-secondary mb-2">£{voucherValue.toFixed(2)}</div>
-                  <div className="text-sm text-muted-foreground mb-4">Available to redeem now</div>
-                  <button
-                    onClick={async () => {
-                      const { voucherValue: val, pointsRemaining, pointsRedeemed } = redeemCalc(profile.points);
-                      if (val <= 0) return;
-                      const code = 'UMRAH-' + Array.from({ length: 8 }, () => 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'[Math.floor(Math.random() * 36)]).join('');
-                      const { error } = await supabase.from('vouchers').insert({
-                        user_id: user.id,
-                        code,
-                        value: val,
-                        points_spent: pointsRedeemed,
-                      });
-                      if (error) { toast.error('Failed to generate voucher'); return; }
-                      await supabase.from('profiles').update({ points: pointsRemaining }).eq('id', user.id);
-                      await refreshProfile();
-                      await fetchData();
-                      toast.success(`Voucher ${code} created! Worth £${val.toFixed(2)} — apply it at checkout.`);
-                    }}
-                    className="bg-secondary text-secondary-foreground px-8 py-3 rounded-[2px] text-sm font-bold tracking-[0.1em] uppercase hover:bg-umrah-gold-dark transition-all"
-                  >
-                    Redeem £{voucherValue.toFixed(2)} Voucher
-                  </button>
-                </div>
+              <h3 className="font-header text-sm tracking-[0.1em] uppercase mb-4">Redeem Your Points</h3>
+              {profile.points >= 200 ? (
+                <>
+                  <p className="text-sm text-muted-foreground mb-4">Choose a voucher to redeem with your <span className="font-semibold text-foreground">{profile.points.toLocaleString()} points</span>:</p>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    {(() => {
+                      const tiers = [
+                        { pts: 200, value: 2 },
+                        { pts: 300, value: 3 },
+                        { pts: 400, value: 4 },
+                        { pts: 500, value: 5 },
+                        { pts: 1000, value: 10 },
+                        { pts: 2000, value: 20 },
+                      ].filter(t => t.pts <= profile.points);
+                      return tiers.map(tier => (
+                        <button
+                          key={tier.pts}
+                          onClick={async () => {
+                            const code = 'UMRAH-' + Array.from({ length: 8 }, () => 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'[Math.floor(Math.random() * 36)]).join('');
+                            const { error } = await supabase.from('vouchers').insert({
+                              user_id: user.id,
+                              code,
+                              value: tier.value,
+                              points_spent: tier.pts,
+                            });
+                            if (error) { toast.error('Failed to generate voucher'); return; }
+                            await supabase.from('profiles').update({ points: profile.points - tier.pts }).eq('id', user.id);
+                            await refreshProfile();
+                            await fetchData();
+                            toast.success(`Voucher ${code} created! Worth £${tier.value.toFixed(2)} — apply it at checkout.`);
+                          }}
+                          className="flex items-center justify-between p-4 rounded-lg border-2 border-border bg-muted hover:border-secondary hover:bg-secondary/5 transition-all group"
+                        >
+                          <div className="text-left">
+                            <div className="font-header text-lg text-secondary group-hover:text-secondary">£{tier.value.toFixed(2)}</div>
+                            <div className="text-xs text-muted-foreground">{tier.pts} points</div>
+                          </div>
+                          <div className="w-8 h-8 rounded-full bg-secondary/10 flex items-center justify-center group-hover:bg-secondary group-hover:text-secondary-foreground transition-all">
+                            <i className="fas fa-arrow-right text-xs" />
+                          </div>
+                        </button>
+                      ));
+                    })()}
+                  </div>
+                </>
               ) : (
                 <div className="text-center">
                   <div className="text-sm text-muted-foreground">You need at least 200 points to redeem a voucher.</div>

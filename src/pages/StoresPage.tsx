@@ -4,13 +4,13 @@ import Footer from '@/components/Footer';
 
 
 const stores = [
-  { name: 'Leicester — HQ', address: '123 Retail Park, Leicester, LE1 1AA', hours: 'Mon–Sun: 8:00am – 10:00pm', tel: '0116 000 0000', open: true, maps: 'https://maps.google.com/?q=Leicester+LE1+1AA' },
-  { name: 'Liverpool', address: '45 City Road, Liverpool, L1 4AB', hours: 'Mon–Sun: 8:00am – 10:00pm', tel: '0151 000 0000', open: true, maps: 'https://maps.google.com/?q=Liverpool+L1+4AB' },
-  { name: 'Huddersfield', address: '78 Market Street, Huddersfield, HD1 2CD', hours: 'Mon–Sun: 8:00am – 10:00pm', tel: '01484 000 000', open: true, maps: 'https://maps.google.com/?q=Huddersfield+HD1+2CD' },
-  { name: 'Northampton', address: '12 Retail Avenue, Northampton, NN1 3EF', hours: 'Mon–Sun: 8:00am – 10:00pm', tel: '01604 000 000', open: true, maps: 'https://maps.google.com/?q=Northampton+NN1+3EF' },
-  { name: 'Birmingham', address: '', hours: '', tel: '', open: false, maps: '' },
-  { name: 'Manchester', address: '', hours: '', tel: '', open: false, maps: '' },
-  { name: 'Leeds', address: '', hours: '', tel: '', open: false, maps: '' },
+  { name: 'Leicester — HQ', address: '123 Retail Park, Leicester, LE1 1AA', hours: 'Mon–Sun: 8:00am – 10:00pm', tel: '0116 000 0000', open: true, maps: 'https://maps.google.com/?q=Leicester+LE1+1AA', embed: 'Leicester+LE1+1AA' },
+  { name: 'Liverpool', address: '45 City Road, Liverpool, L1 4AB', hours: 'Mon–Sun: 8:00am – 10:00pm', tel: '0151 000 0000', open: true, maps: 'https://maps.google.com/?q=Liverpool+L1+4AB', embed: 'Liverpool+L1+4AB' },
+  { name: 'Huddersfield', address: '78 Market Street, Huddersfield, HD1 2CD', hours: 'Mon–Sun: 8:00am – 10:00pm', tel: '01484 000 000', open: true, maps: 'https://maps.google.com/?q=Huddersfield+HD1+2CD', embed: 'Huddersfield+HD1+2CD' },
+  { name: 'Northampton', address: '12 Retail Avenue, Northampton, NN1 3EF', hours: 'Mon–Sun: 8:00am – 10:00pm', tel: '01604 000 000', open: true, maps: 'https://maps.google.com/?q=Northampton+NN1+3EF', embed: 'Northampton+NN1+3EF' },
+  { name: 'Birmingham', address: '', hours: '', tel: '', open: false, maps: '', embed: '' },
+  { name: 'Manchester', address: '', hours: '', tel: '', open: false, maps: '', embed: '' },
+  { name: 'Leeds', address: '', hours: '', tel: '', open: false, maps: '', embed: '' },
 ];
 
 const StoresPage = () => {
@@ -36,33 +36,47 @@ const StoresPage = () => {
             <button className="bg-primary text-primary-foreground px-6 py-3 rounded-lg text-sm font-semibold tracking-[0.1em] uppercase hover:bg-primary/90 transition-all">Find</button>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {filtered.map(store => (
-              <div key={store.name} className={`bg-card rounded-lg p-6 relative ${!store.open ? 'opacity-60' : 'hover:-translate-y-1 hover:shadow-[var(--shadow-lg)]'} transition-all`}>
+              <div key={store.name} className={`bg-card rounded-lg overflow-hidden relative ${!store.open ? 'opacity-60' : 'hover:-translate-y-1 hover:shadow-[var(--shadow-lg)]'} transition-all`}>
+                {store.open && store.embed && (
+                  <div className="w-full h-[200px]">
+                    <iframe
+                      title={`Map of ${store.name}`}
+                      src={`https://maps.google.com/maps?q=${store.embed}&t=&z=14&ie=UTF8&iwloc=&output=embed`}
+                      className="w-full h-full border-0"
+                      allowFullScreen
+                      loading="lazy"
+                      referrerPolicy="no-referrer-when-downgrade"
+                    />
+                  </div>
+                )}
                 {!store.open && (
                   <span className="absolute top-4 right-4 bg-muted text-muted-foreground text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider">Opening Soon</span>
                 )}
-                <h3 className="font-header text-lg tracking-[0.08em] uppercase mb-3">{store.name}</h3>
-                {store.open ? (
-                  <>
-                    <div className="space-y-2 mb-4">
-                      <div className="flex items-start gap-2 text-sm text-muted-foreground">
-                        <i className="fas fa-map-marker-alt text-secondary mt-0.5" />{store.address}
+                <div className="p-6">
+                  <h3 className="font-header text-lg tracking-[0.08em] uppercase mb-3">{store.name}</h3>
+                  {store.open ? (
+                    <>
+                      <div className="space-y-2 mb-4">
+                        <div className="flex items-start gap-2 text-sm text-muted-foreground">
+                          <i className="fas fa-map-marker-alt text-secondary mt-0.5" />{store.address}
+                        </div>
+                        <div className="flex items-start gap-2 text-sm text-muted-foreground">
+                          <i className="fas fa-clock text-secondary mt-0.5" />{store.hours}
+                        </div>
+                        <div className="flex items-start gap-2 text-sm text-muted-foreground">
+                          <i className="fas fa-phone text-secondary mt-0.5" />{store.tel}
+                        </div>
                       </div>
-                      <div className="flex items-start gap-2 text-sm text-muted-foreground">
-                        <i className="fas fa-clock text-secondary mt-0.5" />{store.hours}
-                      </div>
-                      <div className="flex items-start gap-2 text-sm text-muted-foreground">
-                        <i className="fas fa-phone text-secondary mt-0.5" />{store.tel}
-                      </div>
-                    </div>
-                    <a href={store.maps} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-5 py-2.5 rounded-[2px] text-xs font-semibold tracking-[0.1em] uppercase hover:bg-primary/90 transition-all">
-                      Get Directions <i className="fas fa-arrow-right" />
-                    </a>
-                  </>
-                ) : (
-                  <p className="text-sm text-muted-foreground">Coming soon to {store.name}!</p>
-                )}
+                      <a href={store.maps} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-5 py-2.5 rounded-[2px] text-xs font-semibold tracking-[0.1em] uppercase hover:bg-primary/90 transition-all">
+                        Get Directions <i className="fas fa-arrow-right" />
+                      </a>
+                    </>
+                  ) : (
+                    <p className="text-sm text-muted-foreground">Coming soon to {store.name}!</p>
+                  )}
+                </div>
               </div>
             ))}
           </div>

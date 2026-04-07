@@ -136,7 +136,7 @@ const HomePage = () => {
       </section>
 
       {/* Categories */}
-      <section className="py-24 md:py-32 bg-muted">
+      <section className="py-24 md:py-32 bg-background">
         <div className="container-umrah">
           <div className="text-center mb-16">
             <span className="section-label">Our Range</span>
@@ -150,16 +150,16 @@ const HomePage = () => {
                 <div className="h-60 relative overflow-hidden">
                   <img src={categoryImages[cat.name]} alt={cat.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-600" />
                   <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-umrah-black/60" />
-                  <div className="absolute top-4 right-4 w-[42px] h-[42px] bg-secondary/90 rounded-full flex items-center justify-center z-10">
-                    <i className={`fas ${cat.icon} text-umrah-black text-sm`} />
+                  <div className="absolute top-4 right-4 w-[42px] h-[42px] bg-primary/90 rounded-full flex items-center justify-center z-10">
+                    <i className={`fas ${cat.icon} text-primary-foreground text-sm`} />
                   </div>
                 </div>
                 <div className="p-6">
                   <h3 className="text-[0.95rem] tracking-[0.1em] uppercase mb-1.5 font-header">{cat.name}</h3>
                   <p className="text-[0.82rem] text-muted-foreground leading-relaxed">{cat.desc}</p>
                 </div>
-                <div className="absolute bottom-6 right-6 w-9 h-9 bg-secondary rounded-full flex items-center justify-center opacity-0 -translate-x-2.5 group-hover:opacity-100 group-hover:translate-x-0 transition-all">
-                  <i className="fas fa-arrow-right text-umrah-black text-xs" />
+                <div className="absolute bottom-6 right-6 w-9 h-9 bg-primary rounded-full flex items-center justify-center opacity-0 -translate-x-2.5 group-hover:opacity-100 group-hover:translate-x-0 transition-all">
+                  <i className="fas fa-arrow-right text-primary-foreground text-xs" />
                 </div>
               </Link>
             ))}

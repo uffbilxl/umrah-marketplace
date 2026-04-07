@@ -43,6 +43,7 @@ const HomePage = () => {
         <div className="absolute inset-0 bg-cover bg-center brightness-[0.3]" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1542838132-92c53300491e?w=1920&q=80')" }} />
         <div className="absolute inset-0 bg-gradient-to-br from-umrah-black/[0.88] via-umrah-black/50 to-umrah-black/75" />
         <div className="absolute inset-0 opacity-[0.04]" style={{ backgroundImage: 'radial-gradient(circle at 25% 25%, hsl(var(--umrah-gold)) 1px, transparent 1px), radial-gradient(circle at 75% 75%, hsl(var(--umrah-gold)) 1px, transparent 1px)', backgroundSize: '60px 60px' }} />
+        <PatternOverlay opacity={0.15} />
 
         {/* Scrolling tagline strip below navbar */}
         <div className="relative z-10 mt-[80px] bg-secondary/10 border-y border-secondary/20 py-2 overflow-hidden">

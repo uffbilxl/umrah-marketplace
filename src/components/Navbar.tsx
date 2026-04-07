@@ -52,7 +52,8 @@ const Navbar = () => {
   return (
     <>
       <nav className={`fixed top-0 left-0 w-full z-[1000] transition-all duration-400 ${navBg} overflow-hidden`}>
-        <PatternOverlay opacity={0.12} />
+        <img src="/images/pattern-left.png" alt="" className="absolute top-1/2 -translate-y-1/2 left-0 h-[200%] w-auto pointer-events-none select-none opacity-20" />
+        <img src="/images/pattern-right.png" alt="" className="absolute top-1/2 -translate-y-1/2 right-0 h-[200%] w-auto pointer-events-none select-none opacity-20" />
         <div className="container-umrah flex items-center justify-between relative z-10">
           <Link to="/" className="flex flex-col items-start">
             <img src="/images/umrah_logo.png" alt="Umrah Supermarket" className="h-10 md:h-12" />

@@ -189,7 +189,7 @@ const ChatWidget = () => {
                     <Bot className="w-4 h-4 text-primary" />
                   </div>
                   <div className="bg-muted rounded-xl rounded-tl-sm px-3 py-2 text-sm">
-                    Hi there! 👋 I'm the UMRAH assistant. How can I help you today?
+                    Assalamu Alaikum! 👋 I'm the UMRAH assistant. How can I help you today?
                   </div>
                 </div>
                 <div className="flex flex-wrap gap-2 pl-9">

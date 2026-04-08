@@ -18,6 +18,7 @@ import NotFound from "./pages/NotFound";
 import Preloader from "./components/Preloader";
 import PageTransition from "./components/PageTransition";
 import ChatWidget from "./components/ChatWidget";
+import ReviewsWidget from "./components/ReviewsWidget";
 
 const queryClient = new QueryClient();
 
@@ -44,6 +45,7 @@ const App = () => (
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </PageTransition>
+            <ReviewsWidget />
             <ChatWidget />
           </CartProvider>
         </AuthProvider>

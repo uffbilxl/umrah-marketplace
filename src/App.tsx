@@ -45,6 +45,7 @@ const App = () => (
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </PageTransition>
+            <ReviewsWidget />
             <ChatWidget />
           </CartProvider>
         </AuthProvider>
